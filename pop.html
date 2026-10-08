@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Something Beautiful is Coming 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --rose:#c2495a; --blush:#f2d0d7; --cream:#fdf6f0;
+  --gold:#c9a96e; --dark:#1a0a0f; --muted:#7a5560;
+  --secret:#2d0a1a; --sa:#8b1a3a; --sg:#d4a043;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;height:100%;}
+body{
+  background:linear-gradient(160deg,#1a0810 0%,#2d0a1a 50%,#0d0508 100%);
+  background-attachment:fixed;
+  color:#f5c4d0;
+  font-family:'Cormorant Garamond',serif;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:clamp(1rem,4vw,2.5rem);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ── PETALS ── */
+.petal-field{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.petal{
+  position:absolute;top:-60px;
+  background:radial-gradient(ellipse at 40% 30%,#f7c5cf,#d96a80 80%);
+  border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  opacity:0;
+  animation:fallPetal linear infinite;
+  filter:drop-shadow(0 2px 4px rgba(194,73,90,.18));
+}
+@keyframes fallPetal{
+  0%{transform:translateY(0) rotate(0deg) scale(1);opacity:0}
+  10%{opacity:.85}85%{opacity:.7}
+  100%{transform:translateY(110vh) rotate(540deg) scale(.7);opacity:0}
+}
+
+/* ── STARS ── */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.star{
+  position:absolute;
+  background:#f5c4d0;
+  border-radius:50%;
+  animation:twinkle ease infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.1;transform:scale(1)}
+  50%{opacity:.8;transform:scale(1.4)}
+}
+
+/* ── CONTAINER ── */
+.container{
+  position:relative;
+  z-index:10;
+  width:100%;
+  max-width:640px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* ── TOP LABEL ── */
+.top-label{
+  font-family:'Cinzel',serif;
+  font-size:clamp(.5rem,2.2vw,.7rem);
+  letter-spacing:clamp(.2em,.5vw,.45em);
+  color:var(--sg);
+  text-transform:uppercase;
+  margin-bottom:clamp(1rem,3vw,1.5rem);
+}
+
+/* ── ROSE ── */
+.rose-icon{
+  font-size:clamp(2.5rem,8vw,4rem);
+  display:block;
+  margin-bottom:clamp(.8rem,2.5vw,1.2rem);
+  animation:pulseRose 2.5s ease infinite;
+  line-height:1;
+}
+@keyframes pulseRose{
+  0%,100%{transform:scale(1) rotate(-5deg)}
+  50%{transform:scale(1.12) rotate(5deg)}
+}
+
+/* ── TITLE ── */
+.main-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(2.2rem,11vw,5.5rem);
+  color:#f5c4d0;
+  line-height:1.05;
+  margin-bottom:clamp(.3rem,1vw,.5rem);
+  text-shadow:0 0 60px rgba(245,196,208,.25);
+  word-break:break-word;
+}
+
+.subtitle{
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(.6rem,2vw,.75rem);
+  letter-spacing:clamp(.1em,.3vw,.25em);
+  color:rgba(212,160,67,.7);
+  text-transform:uppercase;
+  margin-bottom:clamp(1.5rem,4vw,2.5rem);
+}
+
+/* ── DIVIDER ── */
+.divider{
+  width:clamp(80px,25vw,140px);
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--sg),transparent);
+  margin:0 auto clamp(1.5rem,4vw,2.5rem);
+}
+
+/* ── TEASER ── */
+.teaser{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(1rem,3.2vw,1.4rem);
+  color:rgba(245,196,208,.75);
+  line-height:1.8;
+  margin-bottom:clamp(2rem,5vw,3rem);
+  max-width:min(420px,90vw);
+  padding:0 .5rem;
+}
+
+/* ── COUNTDOWN LABEL ── */
+.countdown-label{
+  font-family:'Cinzel',serif;
+  font-size:clamp(.5rem,1.8vw,.65rem);
+  letter-spacing:clamp(.15em,.4vw,.35em);
+  color:rgba(212,160,67,.6);
+  text-transform:uppercase;
+  margin-bottom:clamp(.8rem,2.5vw,1.2rem);
+}
+
+/* ── COUNTDOWN GRID ── */
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(.5rem,2vw,1rem);
+  width:100%;
+  max-width:min(480px,92vw);
+  margin-bottom:clamp(2rem,5vw,3rem);
+}
+
+.time-block{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:rgba(245,196,208,.06);
+  border:1px solid rgba(212,160,67,.2);
+  border-radius:4px;
+  padding:clamp(.6rem,2.5vw,1rem) clamp(.4rem,1.5vw,.8rem);
+  backdrop-filter:blur(6px);
+  transition:all .3s;
+  min-width:0;
+}
+.time-block:hover{
+  background:rgba(139,26,58,.3);
+  border-color:rgba(212,160,67,.45);
+  transform:translateY(-3px);
+}
+
+.time-num{
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.4rem,6vw,2.6rem);
+  color:#f5c4d0;
+  line-height:1;
+  text-shadow:0 0 20px rgba(245,196,208,.3);
+  transition:all .3s;
+  white-space:nowrap;
+}
+.time-num.tick{animation:tickPop .3s ease;}
+@keyframes tickPop{
+  0%{transform:scale(1.2);color:var(--sg)}
+  100%{transform:scale(1);color:#f5c4d0}
+}
+
+.time-label{
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(.42rem,1.5vw,.6rem);
+  letter-spacing:clamp(.08em,.2vw,.2em);
+  color:rgba(212,160,67,.6);
+  text-transform:uppercase;
+  margin-top:clamp(.3rem,1vw,.5rem);
+  white-space:nowrap;
+}
+
+/* ── ARRIVED MESSAGE ── */
+.arrived-msg{
+  display:none;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(1.3rem,5vw,2.5rem);
+  color:var(--sg);
+  text-shadow:0 0 30px rgba(212,160,67,.4);
+  margin-bottom:clamp(1rem,3vw,2rem);
+  animation:glowGold 2s ease infinite;
+  padding:0 1rem;
+}
+@keyframes glowGold{
+  0%,100%{text-shadow:0 0 20px rgba(212,160,67,.3)}
+  50%{text-shadow:0 0 50px rgba(212,160,67,.7)}
+}
+
+/* ── FOOTER ── */
+.footer-note{
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(.52rem,1.8vw,.65rem);
+  letter-spacing:.15em;
+  color:rgba(245,196,208,.25);
+  text-transform:uppercase;
+  margin-top:.5rem;
+}
+
+/* ── FADE OVERLAY ── */
+#fadeOverlay{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:#0d0508;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 1.8s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+#fadeOverlay.fade-in{
+  opacity:1;
+  pointer-events:all;
+}
+.fade-rose{
+  font-size:clamp(3rem,10vw,5rem);
+  animation:pulseRose 1.5s ease infinite;
+  margin-bottom:1rem;
+}
+.fade-text{
+  font-family:'Cinzel',serif;
+  font-size:clamp(.6rem,2vw,.8rem);
+  letter-spacing:.4em;
+  color:var(--sg);
+  text-transform:uppercase;
+  opacity:0;
+  transition:opacity 1s ease .6s;
+}
+#fadeOverlay.fade-in .fade-text{opacity:1;}
+
+/* ── FLOATING HEARTS ── */
+.heart-float{
+  position:fixed;
+  pointer-events:none;
+  font-size:clamp(1rem,3vw,1.4rem);
+  animation:floatUp 4s ease forwards;
+  z-index:5;
+}
+@keyframes floatUp{
+  0%{opacity:1;transform:translateY(0) scale(1);}
+  100%{opacity:0;transform:translateY(-200px) scale(.5);}
+}
+
+/* ── TINY PHONES ≤360px ── */
+@media(max-width:360px){
+  .main-title{font-size:2rem;}
+  .countdown{gap:.35rem;}
+  .time-block{padding:.5rem .25rem;}
+  .time-num{font-size:1.25rem;}
+  .time-label{font-size:.4rem;letter-spacing:.06em;}
+  .teaser{font-size:.92rem;line-height:1.6;}
+  .top-label{letter-spacing:.15em;}
+}
+
+/* ── LANDSCAPE PHONES ── */
+@media(max-height:500px) and (orientation:landscape){
+  body{justify-content:flex-start;padding-top:.8rem;padding-bottom:.8rem;}
+  .rose-icon{font-size:1.8rem;margin-bottom:.4rem;}
+  .main-title{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:.15rem;}
+  .subtitle{margin-bottom:.6rem;font-size:.6rem;}
+  .divider{margin-bottom:.6rem;}
+  .teaser{font-size:.9rem;margin-bottom:.8rem;line-height:1.5;}
+  .countdown-label{margin-bottom:.4rem;}
+  .countdown{margin-bottom:.8rem;max-width:min(400px,90vw);}
+  .time-block{padding:.4rem .5rem;}
+  .time-num{font-size:1.3rem;}
+}
+
+/* ── TABLETS ── */
+@media(min-width:768px){
+  .container{max-width:680px;}
+  .countdown{max-width:500px;}
+}
+
+/* ── LARGE SCREENS ── */
+@media(min-width:1200px){
+  .container{max-width:760px;}
+  .teaser{font-size:1.45rem;}
+  .time-num{font-size:2.8rem;}
+}
+
+/* ── 4K / TV SCREENS ── */
+@media(min-width:2000px){
+  .container{max-width:1000px;}
+  .main-title{font-size:7rem;}
+  .time-num{font-size:4rem;}
+  .teaser{font-size:1.8rem;}
+  .countdown{max-width:700px;}
+}
+</style>
+</head>
+<body>
+
+<div class="petal-field" id="petalField"></div>
+<div class="stars" id="starsField"></div>
+
+<!-- FADE TRANSITION OVERLAY -->
+<div id="fadeOverlay">
+  <span class="fade-rose">🌹</span>
+  <p class="fade-text">✦ Happy Birthday, Faustine ✦</p>
+</div>
+
+<div class="container">
+  <p class="top-label">✦ A secret is being prepared ✦</p>
+  <span class="rose-icon">🌹</span>
+  <h1 class="main-title">Something<br/>Beautiful</h1>
+  <p class="subtitle">is on its way — just for Faustine</p>
+  <div class="divider"></div>
+  <p class="teaser">
+    A page full of love, memories, and magic<br/>
+    is being kept safe until the right moment arrives.
+  </p>
+  <p class="countdown-label">✦ The moment arrives in ✦</p>
+  <div class="countdown" id="countdown">
+    <div class="time-block">
+      <span class="time-num" id="days">00</span>
+      <span class="time-label">Days</span>
+    </div>
+    <div class="time-block">
+      <span class="time-num" id="hours">00</span>
+      <span class="time-label">Hours</span>
+    </div>
+    <div class="time-block">
+      <span class="time-num" id="minutes">00</span>
+      <span class="time-label">Minutes</span>
+    </div>
+    <div class="time-block">
+      <span class="time-num" id="seconds">00</span>
+      <span class="time-label">Seconds</span>
+    </div>
+  </div>
+  <p class="arrived-msg" id="arrivedMsg">🌹 The day has arrived — Happy Birthday, Faustine! 🌹</p>
+  <p class="footer-note">Courtesy of love · 29th of November 💕</p>
+</div>
+
+<script>
+/* ── PETALS ── */
+const petalField = document.getElementById('petalField');
+const petalCount = window.innerWidth < 480 ? 10 : 18;
+for(let i = 0; i < petalCount; i++){
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const size = 10 + Math.random() * 10;
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    animation-duration:${6+Math.random()*8}s;
+    animation-delay:${Math.random()*10}s;
+    width:${size}px;
+    height:${size*1.4}px;
+  `;
+  petalField.appendChild(p);
+}
+
+/* ── STARS ── */
+const starsField = document.getElementById('starsField');
+const starCount = window.innerWidth < 480 ? 30 : 60;
+for(let i = 0; i < starCount; i++){
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = 1 + Math.random() * 2;
+  s.style.cssText = `
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    width:${sz}px;
+    height:${sz}px;
+    animation-duration:${2+Math.random()*4}s;
+    animation-delay:${Math.random()*5}s;
+  `;
+  starsField.appendChild(s);
+}
+
+/* ── COUNTDOWN ── */
+function getNextBirthday(){
+  const now = new Date();
+  const thisYear = new Date(now.getFullYear(), 10, 29); // Nov 29
+  return now < thisYear ? thisYear : new Date(now.getFullYear()+1, 10, 29);
+}
+
+const daysEl    = document.getElementById('days');
+const hoursEl   = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
+const arrivedMsg= document.getElementById('arrivedMsg');
+const countdown = document.getElementById('countdown');
+
+function pad(n){ return String(n).padStart(2,'0'); }
+
+function tick(el, val){
+  const s = pad(val);
+  if(el.textContent !== s){
+    el.classList.remove('tick');
+    void el.offsetWidth;
+    el.classList.add('tick');
+    el.textContent = s;
+  }
+}
+
+let redirected = false;
+
+function smoothRedirect(){
+  if(redirected) return;
+  redirected = true;
+ 
+  // 1. Burst hearts for ~1.5s
+  burstHearts();
+
+  // 2. After 1.5s start fading to black overlay
+  setTimeout(()=>{
+    const overlay = document.getElementById('fadeOverlay');
+    overlay.classList.add('fade-in');
+
+    // 3. After fade completes (1.8s), redirect to main site
+    setTimeout(()=>{
+      window.location.href = 'Faustine-birthday.html';
+    }, 2200);
+  }, 1500);
+}
+
+function updateCountdown(){
+  const diff = getNextBirthday() - new Date();
+  if(diff <= 0){
+    countdown.style.display = 'none';
+    arrivedMsg.style.display = 'block';
+    smoothRedirect();
+    return;
+  }
+  tick(daysEl,    Math.floor(diff / 86400000));
+  tick(hoursEl,   Math.floor((diff % 86400000) / 3600000));
+  tick(minutesEl, Math.floor((diff % 3600000)  / 60000));
+  tick(secondsEl, Math.floor((diff % 60000)    / 1000));
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ── FLOATING HEARTS ── */
+function spawnHeart(){
+  const h = document.createElement('div');
+  h.className = 'heart-float';
+  h.textContent = ['💕','🌹','✨','💖','🌸'][Math.floor(Math.random()*5)];
+  h.style.left   = Math.random()*88 + 'vw';
+  h.style.bottom = '0';
+  h.style.animationDuration = (3+Math.random()*3)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(), 5000);
+}
+function burstHearts(){ for(let i=0;i<12;i++) setTimeout(spawnHeart, i*150); }
+setInterval(()=>{ if(Math.random()>.5) spawnHeart(); }, 3000);
+</script>
+</body>
+</html>
