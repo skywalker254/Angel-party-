@@ -726,7 +726,7 @@ h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font
     document.getElementById('fanDance').classList.remove('show');
     document.getElementById('fanSing').classList.remove('show');
     if(type==='dance'){ document.getElementById('fanDance').classList.add('show'); burstConfetti(); showToast('💃 Dance it out for Alice!'); }
-    else { document.getElementById('fanSing').classList.add('show'); burstConfetti(); showToast('🎶 Sing it for Alice!'); }
+    else { document.getElementById('fanSing').classList.add('show'); burstConfetti(); showToast('🎶 Sing it for Faustine!'); }
   }
 
   /* HEART TRAIL */
@@ -750,7 +750,7 @@ h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font
   }
 
   /* SHARE */
-  function shareWish(){ if(navigator.share){ navigator.share({title:'Happy Birthday Alice! 💕',text:'A special birthday page for Alice 🌹',url:window.location.href});}else{ navigator.clipboard.writeText(window.location.href).then(()=>showToast('🔗 Link copied! 💕'));} }
+  function shareWish(){ if(navigator.share){ navigator.share({title:'Happy Birthday Faustine! 💕',text:'A special birthday page for Faustine 🌹',url:window.location.href});}else{ navigator.clipboard.writeText(window.location.href).then(()=>showToast('🔗 Link copied! 💕'));} }
 
   /* ── BFF QUESTION ── */
   function ffYes(){
@@ -763,18 +763,18 @@ h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font
     setTimeout(()=>{ document.getElementById('happyScene').classList.add('show'); burstConfetti(['#8b1a3a','#d4a043','#f5c4d0','#e8849a','#ffd700']); burstConfetti(); },800);
   }
 
-  function ffChangeToYes(){
+  function bffChangeToYes(){
     document.getElementById('bffNoPanel').classList.remove('show');
     bffYes();
   }
 
-  function ffNo(){
+  function bffNo(){
     document.getElementById('bffMainBtns').style.display='none';
     document.getElementById('bffNoPanel').classList.add('show');
-    showToast('😳 Are you sure, Alice…?',true);
+    showToast('😳 Are you sure, Faustine…?',true);
   }
 
-  function ffInsistNo(){
+  function bffInsistNo(){
     // Lock her out with crying animation
     document.getElementById('secretPage').classList.remove('active');
     document.getElementById('loginBtnSecret').style.display='none';
